@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # MongoDB connection details
 MONGO_HOST = 'mongo'
@@ -30,7 +32,7 @@ def submit():
 
 @app.route('/users', methods=['GET'])
 def get_users():
-    users = list(collection.find({}, {'_id': 0}))  # Exclude _id field from the response
+    users = list(collection.find({}, {'_id': 0}))
     return jsonify(users)
 
 if __name__ == '__main__':
