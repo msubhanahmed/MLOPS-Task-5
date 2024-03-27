@@ -1,12 +1,18 @@
 version: '3'
 
 services:
-  frontend:
-    build: ./frontend
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - app-network
+  frontend2:
+    build: ./frontend2
     ports:
-      - "80:80"
-    networks:
-      - app-network
+      - "80:8080"
+    depends_on:
+      - backend
 
   backend:
     build: ./backend
