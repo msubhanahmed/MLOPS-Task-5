@@ -4,10 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Simple HTML Page</title>
-        <!-- Bootstrap CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <style>
-            /* Custom styles */
             body {
                 display: flex;
                 justify-content: center;
@@ -49,7 +47,6 @@
             </table>
         </div>
     
-        <!-- Bootstrap JS (Optional, only if you need JS functionality) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -73,8 +70,6 @@
                     console.error('There was an error!', error);
                 });
             }
-
-            // Fetch users function
             function fetchUsers() {
                 fetch('http://localhost:5000/users')
                 .then(response => {
@@ -84,11 +79,8 @@
                     return response.json();
                 })
                 .then(users => {
-                    // Clear existing table rows
                     var tableBody = document.getElementById("usersBody");
                     tableBody.innerHTML = '';
-
-                    // Add new users to the table
                     users.forEach(user => {
                         var row = tableBody.insertRow();
                         var nameCell = row.insertCell(0);
@@ -101,8 +93,6 @@
                     console.error('Failed to fetch users:', error);
                 });
             }
-
-            // Fetch users when the page loads
             window.onload = fetchUsers;
         </script>
 </body>
